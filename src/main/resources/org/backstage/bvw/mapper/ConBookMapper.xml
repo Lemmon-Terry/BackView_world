@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.backstage.bvw.mapper.ConBookMapper">
+
+    <resultMap id="selectBookContent" type="org.backstage.bvw.domain.BookContent">
+        <id column="id" property="id"/>
+        <result column="bookName" property="bookName"/>
+        <result column="author" property="author"/>
+        <result column="publish" property="publish"/>
+        <result column="pubtime" property="pubtime"/>
+    </resultMap>
+
+    <select id="selectBookContent" resultMap="selectBookContent">
+        SELECT bl.id,bl.bookName,bl.author,bc.`publish`,bc.`pubtime`,bc.`content` FROM booklist bl, bookcontent bc WHERE bl.`id` = bc.`id`
+    </select>
+</mapper>

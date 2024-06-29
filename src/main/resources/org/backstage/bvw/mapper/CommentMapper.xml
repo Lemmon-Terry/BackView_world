@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.backstage.bvw.mapper.CommentMapper">
+
+
+    <insert id="addComment">
+        INSERT INTO commentlist VALUES(NULL,#{user_name},#{comcontent},#{book_id})
+    </insert>
+    <delete id="deleteCommentById">
+        delete from commentlist where commentlist.id = #{id}
+    </delete>
+    <select id="selectCommentByBookId" resultType="org.backstage.bvw.domain.Comment">
+        select * from commentlist where commentlist.book_id = #{bookId}
+    </select>
+    <select id="selectCommentById" resultType="org.backstage.bvw.domain.Comment">
+        select * from commentlist where commentlist.id = #{id}
+    </select>
+</mapper>
