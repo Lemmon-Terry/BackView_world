@@ -25,17 +25,5 @@ class BackviewWorldApplicationTests {
 
     @Autowired
     private CommentService commentService;
-    @Test
-    void contextLoads() {
-        Comment comment = new Comment();
-        comment.setUser_name("admin");
-        comment.setComcontent("我也向往我的故乡");
-        comment.setBook_id(1);
-        List<Comment> commentList = commentService.selectComment(comment.getBook_id());
-        for (Comment c : commentList) {
-            System.out.println(c);
-        }
-
-    }
 
 }
